@@ -25,7 +25,7 @@ const htmlTaskContent = ({
     </div>
     <div class="card-body">
     ${url &&
-  `<img width="100%" src=${url} alt="Card image cap" class="card-img-top mb-3 rounded-lg">`
+  `<img width="100%" style="background-size: cover;" src=${url} alt="Card image cap" class="card-img-top mb-3 rounded-lg">`
   }
       <h4 class="task__card__title">${title}</h4>
       <p class="description trim-3-lines text-muted" data-gramm_editor="false">
