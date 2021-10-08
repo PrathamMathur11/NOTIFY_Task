@@ -1,0 +1,122 @@
+/* UNIVERSAL SELEctor */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+img, svg {
+    vertical-align: text-bottom;
+}
+
+/* BODY  */
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #00DBDE;
+    background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+}
+
+
+.navbar-dark .navbar-brand {
+    color: rgb(255 255 255 / 90%);
+}
+
+.navbar-nav{
+    align-items: center;
+}
+
+a.nav-link img.icon {
+    max-height: 32px;
+    min-width: 22px;
+}
+
+.navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .show>.nav-link {
+    color: rgb(255 255 255);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
+
+/*  */
+.nav-link {
+    display: block;
+    padding: .5rem 1rem;
+    color: white;
+    text-decoration: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+
+li.nav-item a.nav-link :hover , .navbar-dark .navbar-brand{
+    color: tomato;
+}
+
+.nav-item{
+    display: flex;
+    align-items: center;
+}
+
+svg:hover {
+    fill: red;
+  }
+a.nav-link {
+    margin: 8px;
+}
+
+
+div.task__card{
+    height: 400px;
+    box-shadow: 10px 10px 62px 26px rgba(184,209,55,1);
+    width: 300px;
+    background-color: lightcyan;
+}
+
+.card-footer, .card-header{
+    padding: .5rem 1rem;
+    border-top: 1px solid rgba(0,0,0,.125);
+}
+
+.btn-outline-primary {
+    color: #0d6efd;
+    border-color: #0d6efd;
+    border-radius: 17px;
+}
+
+.dropdown-menu[data-bs-popper] {
+    top: 100%;
+    left: 350px;
+    margin-top: .125rem;
+}
+
+
+/* footer styles*/
+h2 {
+    font-size: calc(1rem + 1vw);
+    margin-top: 0;
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 3.2;
+}
+
+
+
+/* */
+footer div a {
+    color: cyan;
+    text-decoration: none;
+}
+
+
+footer div a:hover{
+    color:tomato;
+}
+
+.fab{
+    width: 32px;
+    font-size: xx-large;
+}
+footer div.details a img{
+    width: 32px;
+}
