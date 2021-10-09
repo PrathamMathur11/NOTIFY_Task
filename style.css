@@ -18,7 +18,7 @@ body {
     background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
 }
 
-
+/* Navbar styles */
 .navbar-dark .navbar-brand {
     color: rgb(255 255 255 / 90%);
 }
@@ -65,7 +65,13 @@ a.nav-link {
     margin: 8px;
 }
 
+.dropdown-menu[data-bs-popper] {
+    top: 100%;
+    left: 640px;
+    margin-top: .125rem;
+}
 
+/* Card Styles */
 div.task__card{
     height: 400px;
     box-shadow: 10px 10px 62px 26px rgba(184,209,55,1);
@@ -84,11 +90,6 @@ div.task__card{
     border-radius: 17px;
 }
 
-.dropdown-menu[data-bs-popper] {
-    top: 100%;
-    left: 640px;
-    margin-top: .125rem;
-}
 
 
 /* footer styles*/
