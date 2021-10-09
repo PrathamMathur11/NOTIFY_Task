@@ -5,7 +5,7 @@ const state = {
 const taskContents = document.querySelector(".task__contents");
 const taskModal = document.querySelector(".task__modal__body");
 
-const htmlTaskContent = ({
+const addCardContent = ({
   id,
   title,
   description,
@@ -15,8 +15,8 @@ const htmlTaskContent = ({
   <div class="card task__card shadow-sm">
     <div
       class="card-header bg-warning d-flex justify-content-end task__card__header"
-    >
-      <button type="button" class="btn btn-outline-info mr-2" name=${id} onclick="editTask.apply(this, arguments)">
+    > 
+      <button type="button" class="btn btn-outline-info mr-2" name=${id} onclick="taskEdit.apply(this, arguments)">
         <i class="fas fa-pencil-alt"name=${id}></i>
       </button>
       <button type="button" class="btn btn-outline-danger" name=${id} onclick="deleteTask.apply(this, arguments)">
@@ -50,7 +50,7 @@ const htmlTaskContent = ({
   </div>
   </div>`;
 
-const htmlModalContent = ({ id, title, description, url }) => {
+const modalContent = ({ id, title, description, url }) => {
   const date = new Date(parseInt(id));
   return ` <div id=${id}>
     <img
@@ -60,26 +60,26 @@ const htmlModalContent = ({ id, title, description, url }) => {
     alt="bg image"
     class="img-fluid place__holder__image mb-3"
     />
-    <strong class="text-sm text-muted">Created on ${date.toDateString()}</strong>
     <h2 class="my-3">${title}</h2>
     <p class="lead">
     ${description}
-    </p></div>`;
+    </p>
+    <strong class="text-sm text-muted">Created on ${date.toDateString()}</strong></div>`;
 };
 
 const updateLocalStorage = () => {
-  localStorage.setItem("tasky", JSON.stringify({ tasks: state.taskList }));
+  localStorage.setItem("notify", JSON.stringify({ tasks: state.taskList }));
 };
 
-const loadInitialData = () => {
-  const localStorageCopy = JSON.parse(localStorage.tasky);
+const reloadDataInitial = () => {
+  const localStorageCopy = JSON.parse(localStorage.notify);
   if (localStorageCopy) state.taskList = localStorageCopy.tasks;
   state.taskList.map((cardData) => {
-    taskContents.insertAdjacentHTML("beforeend", htmlTaskContent(cardData));
+    taskContents.insertAdjacentHTML("beforeend", addCardContent(cardData));
   });
 };
 
-const handlesubmit = (e) => {
+const submission = (e) => {
   const id = `${Date.now()}`;
   const input = {
     url: document.getElementById("imageUrl").value,
@@ -90,7 +90,7 @@ const handlesubmit = (e) => {
 
   taskContents.insertAdjacentHTML(
     "beforeend",
-    htmlTaskContent({ ...input, id })
+    addCardContent({ ...input, id })
   );
 
   state.taskList.push({ ...input, id });
@@ -101,7 +101,7 @@ const openTask = (e) => {
   if (!e) e = window.event;
 
   const getTask = state.taskList.filter(({ id }) => id === e.target.id);
-  taskModal.innerHTML = htmlModalContent(getTask[0]);
+  taskModal.innerHTML = modalContent(getTask[0]);
 };
 
 const deleteTask = (e) => {
@@ -121,7 +121,7 @@ const deleteTask = (e) => {
   );
 };
 
-const editTask = (e) => {
+const taskEdit = (e) => {
   if (!e) e = window.event;
   const targetID = e.target.id;
   const type = e.target.tagName;
@@ -149,6 +149,8 @@ const editTask = (e) => {
   submitButton.removeAttribute("data-bs-target");
   submitButton.innerHTML = "Save Changes";
 };
+
+
 const saveEdit = (e) => {
   if (!e) e = window.event;
   const targetID = e.target.id;
@@ -188,7 +190,9 @@ const saveEdit = (e) => {
   submitButton.innerHTML = "Open Task";
 };
 
-const searchTask1 = (e) => {
+// for searching tasks by task name 
+
+const taskSearch = (e) => {
   if (!e) e = window.event;
   while (taskContents.firstChild) {
     taskContents.removeChild(taskContents.firstChild);
@@ -199,7 +203,7 @@ const searchTask1 = (e) => {
   );
 
   resultData.map((cardData1) => {
-    taskContents.insertAdjacentHTML("beforeend", htmlTaskContent(cardData1));
+    taskContents.insertAdjacentHTML("beforeend", addCardContent(cardData1));
   });
 };
 

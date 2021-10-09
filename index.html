@@ -16,7 +16,7 @@
     rel="stylesheet" />
 </head>
 
-<body onload="loadInitialData()">
+<body onload="reloadDataInitial()">
   <div class="modal fade" id="addNewModal" tabindex="-1" aria-labelledby="addNewModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -46,7 +46,7 @@
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
               Close
             </button>
-            <button type="submit" class="btn btn-primary" onclick="handlesubmit()" data-bs-dismiss="modal">
+            <button type="submit" class="btn btn-primary" onclick="submission()" data-bs-dismiss="modal">
               Save
             </button>
           </form>
@@ -139,7 +139,7 @@
           <div class="col-md-6">
             <div class="input-group flex-nowrap shadow-lg">
               <input type="search" class="form-control" placeholder="Search Task by Title" aria-label="Search Task"
-                aria-describedby="addon-wrapping" onchange="searchTask1.apply(this, arguments)" /><span
+                aria-describedby="addon-wrapping" onchange="taskSearch.apply(this, arguments)" /><span
                 class="input-group-text" id="addon-wrapping">
                 <i class="fas fa-search"></i>
               </span>
